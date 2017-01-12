@@ -1,0 +1,11 @@
+*.log
+.sass-cache
+Thumbs.db
+.DS_Store
+/node_modules/
+.grunt/
+/bower_components/
+.build*
+/_SpecRunner.html
+Gemfile.lock
+dist/sassc

@@ -1,0 +1,37 @@
+td {
+background: #f9f9f9;
+}
+input:-webkit-autofill {
+-webkit-box-shadow: 0 0 0 1000px white inset !important;
+box-shadow: 0 0 0 1000px white inset !important;
+}
+
+.text-imc {
+color: #009688;
+}
+
+.modal{
+background: rgba(00,00,00,0.8);
+}
+.modal-show .modal{
+display: block;
+}   
+.modal-dialog{
+-webkit-animation-name: animatetop;
+-webkit-animation-duration: 0.4s;
+animation-name: animatetop;
+animation-duration: 0.4s
+}
+@-webkit-keyframes animatetop {
+from {top:-300px; opacity:0} 
+to {top:0; opacity:1}
+}
+@-moz-keyframes animatetop {
+from {top:-300px; opacity:0} 
+to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+from {top:-300px; opacity:0}
+to {top:0; opacity:1}
+}

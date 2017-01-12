@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcule seu IMC</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-material-design.css">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="bs-component">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Peso Ideal</h3>
+              </div>
+              <div class="panel-body">
+                O (IMC) Índice de Massa Corporal, é o método mais rápido para obter a informação se está abaixo do peso normal, acima do peso ideal, ou obeso.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+      <div class="col-md-6">
+        <div class="well bs-component">
+          <form class="form form-horizontal" onsubmit="imcController.add(event)" >
+            <fieldset>
+              <legend>Faça o cálculo do IMC</legend>
+              <div class="form-group is-empty">
+                <label for="inputName" class="col-md-2 control-label">Nome</label>
+
+                <div class="col-md-10">
+                  <input type="text" class="form-control" id="inputName" placeholder="" autocomplete="off">
+                </div>
+              </div>
+
+              <div class="form-group is-empty">
+                <label for="inputHeight" class="col-md-2 control-label">Altura</label>
+                <div class="col-md-10">
+                  <input  type="number"  min="1.00" step="any" class="form-control" value="0.00" id="inputHeight" autocomplete="off">
+                </div>
+              </div>
+
+              <div class="form-group is-empty">
+                <label for="inputWeight" class="col-md-2 control-label">Peso</label>
+                <div class="col-md-10">
+                  <input type="number" step="any" class="form-control" value="00.00" id="inputWeight" autocomplete="off">
+                </div>
+              </div>
+              
+               <div class="form-group">
+                <label class="col-md-2 control-label">Sexo</label>
+                <div class="col-md-10">
+                  <div class="radio radio-primary">
+                    <label>
+                      <input  type="radio" class="genders" name="gender" id="man" value="masculino" checked=""><span class="circle"></span><span class="check"></span>
+                      Masculino
+                    </label>
+                  </div>
+                  <div class="radio radio-primary">
+                    <label>
+                      <input  type="radio" class="genders" name="gender" id="woman" value="feminino" ><span class="circle"></span><span class="check"></span>
+                      Feminino
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-12 text-center">
+                  <button onclick="imcController.saveDataModal()" type="button" class="btn btn-default">Limpar</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+        <div id="imcTableView"></div>
+        <!--<div class="well bs-component">
+        <table class="table table-striped table-hover ">
+            <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Sexo</th>
+              <th>IMC</th>
+              <th>Resultado</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Fulano</td>
+              <td> Masculino </td>
+              <td> 24</td>
+              <td> Acima do Peso</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>-->
+      </div>
+      <div class="col-md-6">
+        <div class="well bs-component">
+        <table class="table table-striped table-hover ">
+            <thead>
+            <tr>
+              <th>Condição</th>
+              <th>IMC Mulher</th>
+              <th>IMC Homem</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>abaixo do peso</td>
+              <td> < 19,1 </td>
+              <td> < 20,7 </td>
+            </tr>
+            <tr>
+              <td>peso normal</td>
+              <td>19,1 - 25,8</td>
+              <td>20,7 - 26,4</td>
+            </tr>
+            <tr>
+              <td>pouco acima do peso</td>
+              <td>25,8 - 27,3</td>
+              <td>26,4 - 27,8</td>
+            </tr>
+            <tr>
+              <td>acima do peso ideal</td>
+              <td>27,3 - 32,3</td>
+              <td>27,8 - 31,1</td>
+            </tr>
+            <tr>   
+              <td>Obeso</td>
+              <td> > 32,3</td>
+              <td> > 31,1</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="imcView">
+        
+      </div>      
+      
+    <!--row-->
+    </div>
+  <!--container-->
+  </div>
+  <div class="overall"></div>
+  <script src="js/app/models/Imc.js"></script>
+  <script src="js/app/models/ImcList.js"></script>
+  <script src="js/app/controllers/ImcController.js"></script>
+  <script src="js/app/views/View.js"></script>
+  <script src="js/app/views/ImcView.js"></script>
+  <script src="js/app/views/ImcTableView.js"></script>
+  <script>
+    var imcController = new ImcController();
+  </script>
+</body>
+</html>
+
+
+
