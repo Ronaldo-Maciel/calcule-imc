@@ -2,14 +2,14 @@ class ImcList {
 
     constructor() {
         
-        this._list = [];
+        this._listModal = [];
         this._listTable = [];
     }
 
     addListModal(imc) {
         
-        this._list = [];
-        this._list.push(imc);
+        this._listModal = [];
+        this._listModal.push(imc);
     }
 
     saveListTable(saveImc) {
@@ -17,10 +17,10 @@ class ImcList {
         this._listTable.push(saveImc);
     }
 
-    get list() {
-        // can not change original list in controller
-        // defensive programming
-        return [].concat(this._list);
+    get listModal() {
+
+        // no can change original list in controller
+        return [].concat(this._listModal);
 	}
 
     get listTable() {
@@ -28,9 +28,14 @@ class ImcList {
         return [].concat(this._listTable);
     }
 
+    del(getValue) {
+       
+       this._listTable.splice(getValue, 1);
+    }
+
     reset() {
 
+        this._listModal = [];
         this._listTable.pop();
-        this._list = [];
     }
 }

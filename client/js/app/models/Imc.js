@@ -57,4 +57,8 @@ class Imc {
         return this._genders;
     }
 
+    get id() {
+        
+        return 0;
+    }
 }

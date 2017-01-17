@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/bootstrap-material-design.css">
     <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
 </head>
 <body>
     <div class="container">
@@ -26,6 +25,11 @@
         </div>
       </div>
       <div class="row">
+        <div class="col-md-12">
+          <div id="alertView"></div>
+        </div>
+      </div>
+      <div class="row">
       <div class="col-md-6">
         <div class="well bs-component">
           <form class="form form-horizontal" onsubmit="imcController.add(event)" >
@@ -33,7 +37,6 @@
               <legend>Faça o cálculo do IMC</legend>
               <div class="form-group is-empty">
                 <label for="inputName" class="col-md-2 control-label">Nome</label>
-
                 <div class="col-md-10">
                   <input type="text" class="form-control" id="inputName" placeholder="" autocomplete="off">
                 </div>
@@ -80,26 +83,6 @@
           </form>
         </div>
         <div id="imcTableView"></div>
-        <!--<div class="well bs-component">
-        <table class="table table-striped table-hover ">
-            <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Sexo</th>
-              <th>IMC</th>
-              <th>Resultado</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td>Fulano</td>
-              <td> Masculino </td>
-              <td> 24</td>
-              <td> Acima do Peso</td>
-            </tr>
-            </tbody>
-          </table>
-        </div>-->
       </div>
       <div class="col-md-6">
         <div class="well bs-component">
@@ -142,10 +125,8 @@
         </div>
       </div>
 
-      <div id="imcView">
-        
+      <div id="imcModalView">
       </div>      
-      
     <!--row-->
     </div>
   <!--container-->
@@ -153,10 +134,12 @@
   <div class="overall"></div>
   <script src="js/app/models/Imc.js"></script>
   <script src="js/app/models/ImcList.js"></script>
-  <script src="js/app/controllers/ImcController.js"></script>
   <script src="js/app/views/View.js"></script>
-  <script src="js/app/views/ImcView.js"></script>
+  <script src="js/app/views/ImcModalView.js"></script>
   <script src="js/app/views/ImcTableView.js"></script>
+  <script src="js/app/models/Alert.js"></script>
+  <script src="js/app/views/AlertView.js"></script>
+  <script src="js/app/controllers/ImcController.js"></script>
   <script>
     var imcController = new ImcController();
   </script>

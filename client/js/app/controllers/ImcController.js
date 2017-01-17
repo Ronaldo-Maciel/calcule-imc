@@ -8,13 +8,19 @@ class ImcController {
         this._inputWeight = $('#inputWeight');
         this._form = $('.form');
         this._genders = this._form.elements['gender'];
-        this._imcList = new ImcList();
-        this._imcView = new ImcView($('#imcView'));
+        this._imcList = new ImcList(model =>
+            this._imcModalView.update(model));
+            this._imcTableView.update(model));
+      
+        this._imcModalView = new ImcModalView($('#imcModalView'));
         this._imcTableView = new ImcTableView($('#imcTableView'));
-        this._imcView.update(this._imcList);
+        this._imcModalView.update(this._imcList);
         this._imcTableView.update(this._imcList);
-        this._modal = document.querySelector('body');
-        
+        this._modal = $('body');
+
+        this._alert = new Alert();
+        this._alertView = new AlertView($('#alertView'));
+        this._alertView.update(this._alert);
     }
 
     add(event) {
@@ -22,17 +28,28 @@ class ImcController {
         event.preventDefault();
         this._imcList.addListModal(this._createImc());
         this._imcList.saveListTable(this._createImc());
-        this._imcView.update(this._imcList);
+        this._imcModalView.update(this._imcList);
         this._clearForm();
         this._modal.classList.add('modal-show');
-        
+    }
+
+    hideModal() {
+
+        this._imcList.reset();
+		this._imcModalView.update(this._imcList);
+        this._modal.classList.remove('modal-show');
     }
 
     saveDataModal() {
-        
-        this._imcView.update(this._imcList);
+
         this._imcTableView.update(this._imcList);
         this._modal.classList.remove('modal-show');
+        this._alert.alertText = "Dados do IMC salvos com sucesso!";
+        this._alertView.update(this._alert);
+        let btnsDelete = document.querySelectorAll('#imcTableView .close');
+        for(let i = 0; i < btnsDelete.length; i++){
+            btnsDelete[i].setAttribute('data-list', [i]);
+        }
     }
 
     _createImc() {
@@ -44,13 +61,15 @@ class ImcController {
             this._genders.value
             )
     }
-    
-    hideModal() {
 
-        this._imcList.reset();
-		this._imcView.update(this._imcList);
+    listDelete(getValue) {
+      
+        this._imcList.del(getValue);
         this._imcTableView.update(this._imcList);
-        this._modal.classList.remove('modal-show');
+        let btnsDelete = document.querySelectorAll('#imcTableView .close');
+        for(let i = 0; i < btnsDelete.length; i++){
+            btnsDelete[i].setAttribute('data-list', [i]);
+        }
     }
 
     _clearForm() {
@@ -60,6 +79,4 @@ class ImcController {
         this._inputWeight.value = '00.00';
         this._inputName.focus();
     }
-
-
 }

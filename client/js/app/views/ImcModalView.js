@@ -1,6 +1,7 @@
-class ImcView extends View{
+class ImcModalView extends View{
 
     constructor(element) {
+        
         super(element);
     }
 
@@ -11,7 +12,7 @@ class ImcView extends View{
                 <div class="modal">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            ${model.list.map(l => `
+                            ${model.listModal.map(l => `
                            
                             <div class="modal-header">
                                 <button onclick="imcController.hideModal()" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -32,7 +33,5 @@ class ImcView extends View{
                 </div>
             </div>
         `;
-        
     }
-
 }

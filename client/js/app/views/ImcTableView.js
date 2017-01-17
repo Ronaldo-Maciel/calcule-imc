@@ -1,6 +1,7 @@
 class ImcTableView extends View{
 
     constructor(element) {
+
         super(element);
     }
 
@@ -25,6 +26,7 @@ class ImcTableView extends View{
               <td> ${l.genders} </td>
               <td>${l.totalImc} </td>
               <td>${l.case} </td>
+              <td><button onclick="imcController.listDelete(this.getAttribute('data-list'))" data-list="${l.id}" type="button" class="close" title="Excluir">×</button></td>
             </tr>
 
             `).join('')}
