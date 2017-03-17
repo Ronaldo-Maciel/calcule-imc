@@ -20,6 +20,7 @@ class Imc {
         let gender = this._genders;
         let man = gender == 'masculino';    
         let woman = gender == 'feminino';    
+        
         if(woman && caseImc < 19.1 || man && caseImc < 20.7){
             return 'Abaixo do peso';
         }

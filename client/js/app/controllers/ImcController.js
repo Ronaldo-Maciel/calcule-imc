@@ -10,7 +10,6 @@ class ImcController {
         this._genders = this._form.elements['gender'];
         this._imcList = new ImcList(model =>
             this._imcModalView.update(model));
-            this._imcTableView.update(model));
       
         this._imcModalView = new ImcModalView($('#imcModalView'));
         this._imcTableView = new ImcTableView($('#imcTableView'));
